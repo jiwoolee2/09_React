@@ -9,7 +9,6 @@ import Chapter02 from './components/Chapter/Chapter02/Chapter02';
 import Chapter022 from './components/Chapter/Chapter02/Chapter02-2';
 
 function App() {
-
   return( 
     <> {false && <WhatIsJsx/> &&
        <WhatIsReact/> &&
@@ -19,16 +18,8 @@ function App() {
        <FirstComponent/>
        }
       
-       
-
        <Chapter022/>
        </>
-    
-
-);
-
-
-
+  );
 }
-
 export default App
