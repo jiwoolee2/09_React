@@ -2,91 +2,106 @@
 // 요번 타임 주제 => 유저정보 ==> 회원들의 정보
 import styled from "styled-components";
 
-const StyleDiv = styled.div`
-    width: 400px;
-    height: 140px;
-    border: 1px solid lightgray;
-    display: inline-block;
-    margin: 40px; 
-    background-color: ${(props) => (props.color ? props.color : "white")};
+const StyledDiv = styled.div`
+   width : 400px;
+   height : 14ppx;
+   border : 1px solid lightgray;
+   display : inline-block;
+   margin: 40px;
+   background-color : ${(props) => (props.color ? props.color : "white")}
 `;
 
-const MemberInfo = ({memberId, memberName, email, color}) => {
-    // console.log(props);
-    //const member = props.member;
-    // console.log(memberId, memberName, email);
-     //const { memberId, memberName, email, color } = props.member;
-    return (
-    <>
-        <StyleDiv color={color}>
+/* 1절 */
+/* const MemberInfo = (props) =>{
+
+   const member = props;
+
+   return(
+      <>
+         <StyledDiv>
+            <h4>아이디 : {props.memberId}</h4>
+            <strong>이름 : </strong>
+            <p>이메일 : </p>
+         </StyledDiv>
+      </>
+   )
+} */
+
+/* 2절 */
+/* const MemberInfo = ({memberId, memberName, email, color}) =>{
+
+   return(
+      <>
+         <StyledDiv color={color}>
             <h4>아이디 : {memberId}</h4>
             <strong>이름 : {memberName}</strong>
             <p>이메일 : {email}</p>
-        </StyleDiv>
-    </>
-    );
+         </StyledDiv>
+      </>
+   )
+} */
+
+/* 3절 */
+const MemberInfo = (props) =>{
+
+   const {memberId, memberName, email, color} = props.member;
+
+   return(
+      <>
+         <StyledDiv color={color}>
+            <h4>아이디 : {memberId}</h4>
+            <strong>이름 : {memberName}</strong>
+            <p>이메일 : {email}</p>
+         </StyledDiv>
+      </>
+   )
+}
+
+const Chapter02 = () =>{
+
+   const response = [
+      {
+         memberId : "admin",
+         memberName : "짱구",
+         email : "jjang9@kh.com",
+         color: "lightyellow",
+      },
+      {
+         memberId : "user01",
+         memberName : "철수",
+         email : "ironwater@kh.com",
+         color: "lightblue",
+      },
+      {
+         memberId : "user02",
+         memberName : "유리",
+         email : "glass@kh.com",
+      },
+
+
+   ]
+   return(
+      <>
+
+      {/* 1절 */}
+      {/* <MemberInfo member={response[0]}/> */}
+
+      {/* 2절 */}
+      {/* <MemberInfo {...response[0]}/>
+      <MemberInfo {...response[1]}/>
+      <MemberInfo {...response[2]}/> */}
+
+      {/* 3절 */}
+      {response ? (
+         response.map(item => <MemberInfo member={item} key={item.memberId}/>) 
+      ) : (
+       <div> 데이터가 존재하지 않습니다.</div>  
+      )}
+
+
+      </>
+   );
 };
-
-
-const Chapter02 =() =>{
-    const response = [{
-        memberId: "admin",
-        memberName: "짱구",
-        email: "jjang9@kh.com",
-        color : "lightgreen",
-    },
-    {
-        memberId: "user01",
-        memberName: "철수",
-        email: "ironwater@kh.com",
-        color : "lightblue",
-    },
-    {
-        memberId: "user02",
-        memberName: "유리",
-        email: "glass@kh.com",
-    },
-];
-
-    return (
-        <>
-          {response ? (
-            response.map((e,i)=>
-            <MemberInfo member={e} key={e.memberId}/>)
-          ) : (
-          <div>조회결과가 존재하지 않습니다.</div>
-          
-        )}
-        
-
-
-
-        {/*
-          <MemberInfo {...response[0]} />
-          <MemberInfo {...response[1]} />
-          <MemberInfo {...response[2]} />
-        */}
-        {/* 여기까지가 1절
-            <StyleDiv>
-                <h4>아이디 : {response[0].memberId}</h4>
-                <strong>이름 : {response[0].memberName}</strong>
-                <p>이메일 : {response[0].email}</p>
-            </StyleDiv>    
-            <StyleDiv>
-                <h4>아이디 : {response[1].memberId}</h4>
-                <strong>이름 : {response[1].memberName}</strong>
-                <p>이메일 : {response[1].email}</p>
-            </StyleDiv>    
-            <StyleDiv>
-                <h4>아이디 : {response[2].memberId}</h4>
-                <strong>이름 : {response[2].memberName}</strong>
-                <p>이메일 : {response[2].email}</p>
-            </StyleDiv>    
-        */}
-        </>
-    );
-};
-
 
 
 export default Chapter02;
