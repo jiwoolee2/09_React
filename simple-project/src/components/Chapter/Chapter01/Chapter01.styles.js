@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Chapter01 from "./Chpater01";
+import Chapter01 from "./Chapter01";
 
 
 export const StyledP = styled.p`
