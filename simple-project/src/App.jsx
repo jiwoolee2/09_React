@@ -18,6 +18,7 @@ import Memo from './components/Memo/Memo';
 import Foods from './components/Busan/Foods';
 import FoodDetail from './components/Busan/Detail/FoodDetail';
 import MatGyp from './components/Chapter/Homework/matGyp';
+import Api from './Api';
 
 /* 
   URL을 이용해서 url이 
@@ -54,6 +55,7 @@ function App() {
         <Route path="/foods" element={<Foods/>}/>
         <Route path="/foods/:id" element={<FoodDetail/>}/>
         <Route path="/matGyp/" element={<MatGyp/>}/>
+        <Route path="/Api" element={<Api/>}/>
       
         <Route path="/*" element={<h1>존재하지 않는 페이지 요청입니다</h1>}/>
       </Routes>
